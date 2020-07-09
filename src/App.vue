@@ -29,6 +29,10 @@ export default {
   color:#6C5AEE
 }
 
+.text-grey{
+  color:#979dac
+}
+
 .bg-purple{
   background-color:#6C5AEE;
 }

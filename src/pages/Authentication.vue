@@ -40,13 +40,16 @@
                 <div class="card modal-card-body" style="border-bottom-right-radius:8px;border-bottom-left-radius:8px;">
                     
                     <section>
-                        <b-input
-                            type="email"
-                            :value="email"
-                            placeholder="Phone Number">
-                        </b-input>
+                        <VuePhoneNumberInput
+                            class="is-danger"
+                            v-model="phoneNumber"
+                            @update="onUpdate"
+                        />
                         <div class="wrap-button" style="margin-top:20px">
                             <b-button type="is-primary button"  expanded>Resend Code</b-button>
+                        </div>
+                        <div class="wrap-button" style="margin-top:10px">
+                            <b-button type="is-light button" @click="closeModal"  expanded>Cancel</b-button>
                         </div>
                         
                     </section>
@@ -56,6 +59,8 @@
     </div>
 </template>
 <script>
+import VuePhoneNumberInput from 'vue-phone-number-input';
+import 'vue-phone-number-input/dist/vue-phone-number-input.css';
 export default {
     name:'AuthenticationPage',
     data(){
@@ -64,6 +69,9 @@ export default {
              isModalActive:false,
              phoneNumber:''
         }
+    },
+    components:{
+        VuePhoneNumberInput
     },
     methods:{
         onFocus () {
@@ -80,6 +88,14 @@ export default {
                     console.log(event.target.parentElement.previousSibling.children[0].focus())
                 }
             }
+        },
+
+        closeModal(){
+            const close = document.body.querySelector('.modal-close');
+            close.click()
+        },
+        onUpdate(payload){
+            this.phoneNumber = `${payload.countryCallingCode}${payload.phoneNumber}`
         },
     }
 }

@@ -66,7 +66,7 @@ export default {
     },
     methods:{
         onUpdate(payload){
-            this.phone = `${payload.countryCallingCode}${payload.phoneNumber}`
+            this.phoneNumber = `${payload.countryCallingCode}${payload.phoneNumber}`
         },
         onLogin(){
             console.log('login')
