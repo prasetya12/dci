@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from './pages/LoginPage'
+import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import Authentication from './pages/Authentication'
 import Profile from './pages/Profile'
@@ -15,12 +15,12 @@ const router = new Router({
         {
             name:'login',
             path: '/',
-            component:Login
+            component:LoginPage
         },
         {
             name:'login',
             path: '/login',
-            component:Login
+            component:LoginPage
         },
         {
             name:'register',
